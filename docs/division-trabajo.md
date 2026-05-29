@@ -6,8 +6,8 @@
 **Repositorio:** https://github.com/akobo05/ecobot · **Tablero:** GitHub Project "EcoBot"
 **Ventana:** 6 semanas (ver cronograma en [`../CONTRIBUTING.md`](../CONTRIBUTING.md))
 
-> Mismo equipo y misma metodología que el proyecto de IHC (Gem de specs + Gem de
-> review, specs por feature, ramas + PR revisado, code-review por PR).
+> Mismo equipo y misma metodología que el proyecto de IHC: specs por feature,
+> ramas + PR revisado y code-review por PR.
 
 ---
 
@@ -96,7 +96,7 @@ Falta solo: cada integrante deja su **entorno listo** (`pip install -r requireme
 ## Integración (los tres)
 
 - Cada quien en su rama (`motor`, `graficos`, `contenido`); **un PR por entregable**,
-  revisado por otro integrante (igual que en IHC). Usar la **Reviewer-Gem** antes del PR.
+  revisado por otro integrante (igual que en IHC). Auto-revisar el diff antes de abrir el PR.
 - Punto de integración al final de cada semana: se mergea a `main` y se juega entre los tres.
 - Tareas compartidas: integración + playtest (#25), QA + code freeze (#28), demo + ensayo (#30).
 

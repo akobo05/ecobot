@@ -7,11 +7,12 @@ Reparto del trabajo entre los **3 integrantes** por rol, según el cronograma de
 
 | Rol | Área | Perfil sugerido | Integrante |
 |-----|------|-----------------------------|------------|
-| **A** | Motor y lógica (`core/`, `main`, intérprete, colisiones, guardado) | El más fuerte en algoritmos | _____ |
-| **B** | Gráficos, filtros y visión (`filters/`, bridge, cámara, histograma, efectos) | El de matrices/OpenCV | _____ |
-| **C** | Niveles, UI, contenido y docs (`ui/`, `data/levels/`, assets, informe) | El de diseño/redacción/orden | _____ |
+| **A** | Motor y lógica (`core/`, `main`, intérprete, colisiones, guardado) | El más fuerte en algoritmos | **Aaron (AD)** |
+| **B** | Gráficos, filtros y visión (`filters/`, bridge, cámara, histograma, efectos) | El de matrices/OpenCV | **Walter (WP)** |
+| **C** | Niveles, UI, contenido y docs (`ui/`, `data/levels/`, assets, informe) | El de diseño/redacción/orden | **Max (MS)** |
 
-> Sugerencia de mapeo (a confirmar por el equipo): Max, Aaron, Walter → A, B, C.
+> Mapeo según afinidad demostrada en el proyecto de IHC. Detalle y justificación en
+> [`division-trabajo.md`](division-trabajo.md). Ajustable el día 1 si el equipo prefiere otro reparto.
 
 ## Etiquetas del tablero
 `rol-a` · `rol-b` · `rol-c` · `semana-1`…`semana-6` · `P0` (bloquea/contrato) ·

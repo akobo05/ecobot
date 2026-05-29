@@ -96,6 +96,32 @@ ISBN, disponibilidad legal). Donde un dato no se pudo confirmar, se indica.
 
 ---
 
+## Los mejores libros (sin importar precio) y a qué Gem alimentan
+
+Selección "calidad por encima de costo", verificada en web. Útil tanto para el equipo
+como para configurar las dos Gems de Gemini (Spec-Gem y Reviewer-Gem).
+
+| Libro | Enfoque | Unidad | Spec-Gem | Reviewer-Gem | Disponibilidad |
+|---|---|---|---|---|---|
+| **Game Programming Patterns** — Robert Nystrom (2014) | P (patrones) | U4 | ✅ (diseña el intérprete: *Command*, *State*, *Game Loop*) | ✅ (verifica patrones) | **Gratis online**: https://gameprogrammingpatterns.com/ |
+| **Computer Vision: Algorithms and Applications, 2e** — R. Szeliski (2022). ISBN 978-3-030-34372-9 | P/T moderno | U1–U3 | ✅ | ✅ | **Gratis** (draft del autor): https://szeliski.org/Book/ |
+| **Mathematics for 3D Game Programming & CG, 3e** — E. Lengyel (2011) | R/T aplicada | U4 | ✅ (construir matrices 3×3) | ✅ (verificarlas) | De pago *(sílabo ítem f)* |
+| **Fundamentals of Computer Graphics, 5e** — Marschner & Shirley (2021). ISBN 978-0367505035 | T/R | U4 | — | ✅ (coordenadas y transformaciones, autoritativo) | De pago |
+| **Digital Image Processing, 4e** — Gonzalez & Woods (2018) | T/R | U1–U2 | (fundamento) | ✅ (verificar filtros) | De pago — ya lo tienes |
+| **Learning OpenCV 4 ... with Python 3** — Howse & Minichino (2020) | P | U1–U2 | ✅ (implementar filtros) | — | De pago (código gratis en GitHub) |
+| **Making Games with Python & Pygame** — Sweigart (2012) | P | U4 | ✅ (esqueleto PyGame) | — | **Gratis CC**: https://inventwithpython.com/pygame/ |
+| **Effective Python, 3e** — Brett Slatkin (2024). ISBN 978-0138172183 | P (calidad de código) | — | — | ✅ (estilo Pythonic) | De pago |
+| **Fluent Python, 2e** — L. Ramalho (2022) | P (Python profundo) | — | — | ✅ opcional | De pago |
+| **Clean Code** — R. C. Martin (2008) | P (calidad de código) | — | — | ✅ opcional | De pago |
+| **Documentación PyGame / OpenCV-Python** | P/R | U1–U2, U4 | ✅ | ✅ | Gratis (online) |
+
+> **Resumen por Gem:**
+> - **Spec-Gem** (construir): Game Programming Patterns + Sweigart + Howse(OpenCV) + Lengyel + docs PyGame/OpenCV (+ Szeliski opcional).
+> - **Reviewer-Gem** (verificar): Gonzalez & Woods + Lengyel + Effective Python + Game Programming Patterns + docs (+ Marschner / Fluent Python / Clean Code opcionales).
+> Detalle de configuración en `../../../gemini-gems/`.
+
+---
+
 ## Mínimo imprescindible para EcoBot (equipo de 3)
 
 1. **Making Games with Python & Pygame** (Sweigart, gratis) — esqueleto del juego.

@@ -11,7 +11,7 @@ import numpy as np
 
 
 def otsu_threshold(bgr: np.ndarray) -> np.ndarray:
-    """Umbral de Otsu sobre la versión en grises; devuelve BGR binarizado (ver GDD §5.2)."""
+    """Umbral de Otsu sobre la versión en grises; devuelve BGR binarizado (ver docs/specs/03-graphics-filters.md)."""
     raise NotImplementedError("Rol B — Semana 3")
 
 

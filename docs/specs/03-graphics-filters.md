@@ -5,7 +5,7 @@ Cubre `filters/`, `utils/pygame_cv_bridge.py`, `ui/histogram_panel.py`,
 de verdad" y la que cubre las Unidades 1 y 2.
 
 Depende de los contratos: §4 (filtros Surface↔ndarray) y §6 (homogéneas) de
-`01-contracts.md`. Referencia de implementación: `ECOBOT_GDD.md` §5.2.
+`01-contracts.md`. La receta concreta de cada filtro está más abajo.
 
 ---
 
@@ -29,7 +29,14 @@ bridge. El efecto visual es el output matemático real, no decoración.
 | `threshold.py` | `otsu_threshold(bgr)`, `adaptive_threshold(...)` | U2 | `FILTER_THRESH`: separa zona segura/tóxica |
 
 `FilterEngine` (en `filter_engine.py`) expone `apply_sobel/apply_equalization/apply_threshold`
-con la firma del contrato §4. Pasos de cada filtro en GDD §5.2.
+con la firma del contrato §4. Cada uno recorta `rect`, lo pasa a `ndarray` BGR con el
+bridge, aplica el filtro y devuelve una `Surface`. Recetas (OpenCV):
+
+- **Sobel (bordes):** `BGR→GRAY`; `Sobel` en x e y (`cv2.CV_64F`, `ksize=3`); magnitud
+  (`cv2.magnitude`); normalizar a 0–255 (`cv2.normalize`, `CV_8U`); `GRAY→BGR`.
+- **Ecualización:** `BGR→YCrCb`; `cv2.equalizeHist` sobre el canal Y; `YCrCb→BGR`
+  (ecualizar solo la luminancia no distorsiona el color).
+- **Umbral (Otsu):** `BGR→GRAY`; `cv2.threshold(..., THRESH_BINARY+THRESH_OTSU)`; `GRAY→BGR`.
 
 - **Tests:** `tests/test_filters.py` (p. ej. Sobel marca un borde vertical conocido).
 
@@ -52,7 +59,7 @@ Transformación **mundo → pantalla** como **concatenación escala ∘ traslaci
 - `ParticleSystem(kind)` con `emit/update/render` (smog, agua contaminada).
 - `apply_contamination_tint(surface, contamination)` — transformación de intensidad
   (U1): a más contaminación, mundo más oscuro/desaturado; al restaurar, más vibrante.
-- **Es lo primero que se recorta** si el equipo va retrasado (`ECOBOT_PLAN_TRABAJO.md` §5).
+- **Es lo primero que se recorta** si el equipo va retrasado (capa opcional, ver `../../CONTRIBUTING.md`).
 
 ---
 

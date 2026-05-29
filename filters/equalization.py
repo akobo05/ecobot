@@ -11,7 +11,7 @@ import numpy as np
 
 
 def equalize_luminance(bgr: np.ndarray) -> np.ndarray:
-    """Ecualiza el canal Y (YCbCr) y devuelve BGR (ver GDD §5.2)."""
+    """Ecualiza el canal Y (YCbCr) y devuelve BGR (ver docs/specs/03-graphics-filters.md)."""
     raise NotImplementedError("Rol B — Semana 3")
 
 

@@ -2,7 +2,7 @@
 
 > Estos son los puntos donde el trabajo de un rol **depende** del de otro. Se
 > congelan en la Semana 1. **Cambiar un contrato después obliga a avisar a todo el
-> equipo** y actualizar este documento. Derivado de `ECOBOT_PLAN_TRABAJO.md` §3.
+> equipo** y actualizar este documento.
 
 Índice: [§1 Nivel JSON](#1-esquema-canónico-de-nivel) ·
 [§2 Instrucciones](#2-instrucciones-y-semántica-de-repeat--función) ·

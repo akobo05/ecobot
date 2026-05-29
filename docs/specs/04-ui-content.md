@@ -42,16 +42,16 @@ capa opcional.
 13 niveles + 3 bosses repartidos en 3 mundos. Cada uno cumple `level_schema.json`.
 **Requisitos de diseño de cada nivel:**
 - Solucionable con las `available_instructions` y dentro de `max_slots`.
-- Progresivo: cada nivel introduce una idea nueva (ver tablas de mundos en GDD §3).
+- Progresivo: cada nivel introduce una idea nueva.
 - `star_thresholds` justos: 3★ ≈ solución óptima, 2★ ≈ buena, 1★ ≈ completarlo.
 - `intro_text` con un dato ambiental real (la narrativa no es decorativa).
 
-Estructura de mundos (GDD §3): Mundo 1 Bosque (6×6, instrucciones básicas), Mundo 2
-Océano (7×7, +SALTAR/REPETIR/F1/filtro bordes), Mundo 3 Ciudad (8×8, +F2/ecualizar/umbral).
+Estructura de mundos: Mundo 1 Bosque (6×6, instrucciones básicas), Mundo 2 Océano
+(7×7, +`JUMP`/`REPEAT`/`F1`/`FILTER_EDGES`), Mundo 3 Ciudad (8×8, +`F2`/`FILTER_EQ`/`FILTER_THRESH`).
 
 ## `assets/`
 Sprites (32×32), tiles por mundo, iconos de instrucciones, fondos, audio, fuentes.
-Libres de itch.io / OpenGameArt o generados. Inventario en GDD §9.
+Libres de itch.io / OpenGameArt o generados (el inventario concreto lo define el Rol C).
 
 ---
 

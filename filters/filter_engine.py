@@ -9,7 +9,7 @@ aplica el filtro y devuelve una nueva `pygame.Surface`.
 Dueño: Rol B (Gráficos / Visión).
 Spec: docs/specs/03-graphics-filters.md
 Contrato: docs/specs/01-contracts.md §3.4 (Surface ↔ ndarray)
-Referencia de implementación: ECOBOT_GDD.md §5.2
+Recetas de cada filtro: docs/specs/03-graphics-filters.md
 """
 
 import pygame
@@ -24,7 +24,7 @@ class FilterEngine:
 
         Revela el contorno de las celdas HIDDEN. Ver filters/sobel.py.
         """
-        raise NotImplementedError("Rol B — Semana 3. Ver GDD §5.2 y filters/sobel.py")
+        raise NotImplementedError("Rol B — Semana 3. Ver docs/specs/03-graphics-filters.md y filters/sobel.py")
 
     @staticmethod
     def apply_equalization(surface: pygame.Surface, rect: pygame.Rect) -> pygame.Surface:
@@ -32,7 +32,7 @@ class FilterEngine:
 
         Revela contaminantes en zonas oscuras. Ver filters/equalization.py.
         """
-        raise NotImplementedError("Rol B — Semana 3. Ver GDD §5.2 y filters/equalization.py")
+        raise NotImplementedError("Rol B — Semana 3. Ver docs/specs/03-graphics-filters.md y filters/equalization.py")
 
     @staticmethod
     def apply_threshold(surface: pygame.Surface, rect: pygame.Rect) -> pygame.Surface:
@@ -40,4 +40,4 @@ class FilterEngine:
 
         Ver filters/threshold.py.
         """
-        raise NotImplementedError("Rol B — Semana 3. Ver GDD §5.2 y filters/threshold.py")
+        raise NotImplementedError("Rol B — Semana 3. Ver docs/specs/03-graphics-filters.md y filters/threshold.py")

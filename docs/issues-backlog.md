@@ -1,12 +1,11 @@
 # EcoBot — Backlog de trabajo (issues para el tablero Kanban)
 
-Reparto del trabajo entre los **3 integrantes** por rol, derivado de
-`ECOBOT_PLAN_TRABAJO.md` (cronograma de 6 semanas) y del backlog priorizado.
-Cada ítem es una **issue** lista para el tablero.
+Reparto del trabajo entre los **3 integrantes** por rol, según el cronograma de
+[`../CONTRIBUTING.md`](../CONTRIBUTING.md). Cada ítem es una **issue** lista para el tablero.
 
 ## Roles (asignar nombres del equipo)
 
-| Rol | Área | Perfil sugerido (Plan §1.4) | Integrante |
+| Rol | Área | Perfil sugerido | Integrante |
 |-----|------|-----------------------------|------------|
 | **A** | Motor y lógica (`core/`, `main`, intérprete, colisiones, guardado) | El más fuerte en algoritmos | _____ |
 | **B** | Gráficos, filtros y visión (`filters/`, bridge, cámara, histograma, efectos) | El de matrices/OpenCV | _____ |
@@ -93,5 +92,5 @@ Cada ítem es una **issue** lista para el tablero.
 
 ---
 
-## Capa opcional (se recorta primero si vamos retrasados — Plan §5)
+## Capa opcional (se recorta primero si vamos retrasados — ver `../CONTRIBUTING.md`)
 Partículas → cinemáticas → audio → funciones avanzadas del editor → reducir a 3 niveles/mundo → último recurso: 2 mundos.

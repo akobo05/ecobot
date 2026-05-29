@@ -40,8 +40,8 @@ python main.py
 ```
 
 > El scaffold actual arranca e importa todos los módulos, pero la lógica está como
-> `stub` (`NotImplementedError`). El plan de implementación de 6 semanas está en
-> `../ECOBOT_PLAN_TRABAJO.md`.
+> `stub` (`NotImplementedError`). El plan de trabajo y las tareas están en
+> [`CONTRIBUTING.md`](CONTRIBUTING.md) y [`docs/issues-backlog.md`](docs/issues-backlog.md).
 
 ---
 
@@ -60,11 +60,8 @@ ecobot/
 ├── data/levels/         # 16 niveles en JSON                (Rol C)
 ├── assets/              # sprites, tiles, audio, fuentes    (Rol C)
 ├── tests/               # pytest de la lógica pura
-└── docs/specs/          # specs y contratos del equipo
+└── docs/                # specs, contratos y backlog del equipo
 ```
-
-**Documentos de diseño** (en la carpeta superior, fuera del repo):
-`ECOBOT_CONCEPTO.md`, `ECOBOT_GDD.md`, `ECOBOT_PLAN_TRABAJO.md`.
 
 ---
 
@@ -78,7 +75,7 @@ ecobot/
 - Los **contratos compartidos** entre roles están congelados en
   [`docs/specs/01-contracts.md`](docs/specs/01-contracts.md). Cambiarlos obliga a avisar al equipo.
 
-Convenciones completas y *Definition of Done* en `../ECOBOT_PLAN_TRABAJO.md` (sección 2).
+Convenciones completas, roles y *Definition of Done* en [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ---
 

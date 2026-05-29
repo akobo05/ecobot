@@ -8,21 +8,9 @@
 
 ## Qué es esto
 
-Estas specs son el **contrato de trabajo del equipo**. Describen *qué* hace cada
-módulo, *qué interfaz* expone y *de qué depende*, para que tres personas puedan
-programar en paralelo sin pisarse. No repiten el diseño del juego — eso vive en los
-documentos de diseño.
-
-## Documentos de diseño (fuente de verdad del juego)
-
-Están en la carpeta superior, **fuera del repo**:
-
-- `ECOBOT_CONCEPTO.md` — la idea: cómo se juega y cómo se siente.
-- `ECOBOT_GDD.md` — diseño técnico completo: mecánicas, mundos, niveles, arquitectura, assets.
-- `ECOBOT_PLAN_TRABAJO.md` — roles, metodología, cronograma de 6 semanas, contratos.
-
-Estas specs **derivan** de esos documentos; si hay conflicto, manda el GDD/Plan y se
-actualiza la spec.
+Estas specs son el **contrato de trabajo del equipo** y la **fuente de verdad** del
+proyecto. Describen *qué* hace cada módulo, *qué interfaz* expone y *de qué depende*,
+para que tres personas puedan programar en paralelo sin pisarse.
 
 ## Mapa de las specs
 
@@ -41,7 +29,7 @@ actualiza la spec.
 - **Rol B — Gráficos, filtros y visión:** `filters/`, `utils/pygame_cv_bridge.py`, `ui/histogram_panel.py`, `core/camera.py`, `core/effects.py`.
 - **Rol C — Niveles, UI, contenido y docs:** `ui/` (salvo histograma), `data/levels/`, `utils/level_editor.py`, `assets/`, `README.md` e informe.
 
-El reparto archivo por archivo está en `ECOBOT_PLAN_TRABAJO.md` §1.5.
+El reparto archivo por archivo está en [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md).
 
 ## Convenciones (resumen)
 
@@ -51,4 +39,4 @@ El reparto archivo por archivo está en `ECOBOT_PLAN_TRABAJO.md` §1.5.
 - `main` siempre corre sin crashear. Código a `main` solo vía Pull Request revisado.
 - Tests con `pytest` para la lógica pura (intérprete, colisiones, filtros, bridge).
 
-La *Definition of Done* y la metodología de Git completas están en `ECOBOT_PLAN_TRABAJO.md` §2.
+La *Definition of Done* y la metodología de Git completas están en [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md).

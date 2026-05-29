@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EcoBot Level",
+  "description": "Esquema canónico de un nivel. Contrato congelado: docs/specs/01-contracts.md §3.1. Los tokens son ASCII; los emojis quedan solo para la UI.",
+  "type": "object",
+  "required": ["world", "level", "name", "grid_size", "max_slots", "star_thresholds", "robot_start", "available_instructions", "grid", "tasks"],
+  "additionalProperties": false,
+  "properties": {
+    "world": { "type": "integer", "minimum": 1, "maximum": 3 },
+    "level": { "type": "integer", "minimum": 1 },
+    "name": { "type": "string" },
+    "intro_text": { "type": "string", "description": "Texto narrativo con un dato ambiental real." },
+    "grid_size": {
+      "type": "array",
+      "description": "[columnas, filas]. La grilla se indexa grid[row][col].",
+      "items": { "type": "integer", "minimum": 1 },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "max_slots": { "type": "integer", "minimum": 1 },
+    "star_thresholds": {
+      "type": "array",
+      "description": "[slots para 1 estrella, para 2, para 3]. Descendente.",
+      "items": { "type": "integer", "minimum": 1 },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "robot_start": {
+      "type": "object",
+      "required": ["col", "row", "direction"],
+      "additionalProperties": false,
+      "properties": {
+        "col": { "type": "integer", "minimum": 0 },
+        "row": { "type": "integer", "minimum": 0 },
+        "direction": { "enum": ["UP", "DOWN", "LEFT", "RIGHT"] }
+      }
+    },
+    "available_instructions": {
+      "type": "array",
+      "items": {
+        "enum": ["MOVE", "TURN_L", "TURN_R", "ACTION", "JUMP", "REPEAT", "CALL_F1", "CALL_F2", "FILTER_EDGES", "FILTER_EQ", "FILTER_THRESH"]
+      }
+    },
+    "grid": {
+      "type": "array",
+      "description": "Filas de tokens de celda. La posición del robot NO va aquí, solo en robot_start.",
+      "items": {
+        "type": "array",
+        "items": {
+          "enum": ["GROUND", "DIRTY", "WALL", "GOAL", "DEAD_TREE", "TRASH", "SPILL", "HIDDEN"]
+        }
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "col", "row"],
+        "additionalProperties": false,
+        "properties": {
+          "type": { "enum": ["PLANT", "COLLECT", "NEUTRALIZE"] },
+          "col": { "type": "integer", "minimum": 0 },
+          "row": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

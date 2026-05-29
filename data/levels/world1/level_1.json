@@ -1,0 +1,20 @@
+{
+  "world": 1,
+  "level": 1,
+  "name": "Primer Árbol",
+  "intro_text": "El INPE registró la pérdida de 6 288 km² de Amazonía entre agosto 2023 y julio 2024. EcoBot empieza por un árbol: planta la semilla y llega a la meta.",
+  "grid_size": [6, 6],
+  "max_slots": 6,
+  "star_thresholds": [6, 4, 3],
+  "robot_start": { "col": 0, "row": 5, "direction": "RIGHT" },
+  "available_instructions": ["MOVE", "TURN_L", "TURN_R", "ACTION"],
+  "grid": [
+    ["GROUND", "GROUND", "GROUND", "GROUND", "GROUND", "GROUND"],
+    ["GROUND", "GROUND", "GROUND", "GROUND", "GROUND", "GROUND"],
+    ["GROUND", "GROUND", "GROUND", "GROUND", "GROUND", "GROUND"],
+    ["GROUND", "GROUND", "GROUND", "GROUND", "GROUND", "GROUND"],
+    ["GROUND", "GROUND", "GROUND", "GROUND", "GROUND", "GROUND"],
+    ["GROUND", "GROUND", "DEAD_TREE", "GROUND", "GROUND", "GOAL"]
+  ],
+  "tasks": [{ "type": "PLANT", "col": 2, "row": 5 }]
+}

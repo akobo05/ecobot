@@ -1,0 +1,10 @@
+# EcoBot — dependencias del proyecto
+# Instalar con:  pip install -r requirements.txt
+# Probado en Python 3.11+
+
+pygame==2.5.2
+numpy==1.26.4
+opencv-python==4.9.0.80
+
+# --- Solo desarrollo (tests) ---
+pytest==8.1.1

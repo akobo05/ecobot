@@ -23,12 +23,15 @@ def is_victory(level: Level, robot: Robot) -> bool:
 
 
 def is_failure(level: Level, robot: Robot, instructions_left: bool) -> bool:
-    """True si se cumple alguna condición de derrota.
+    """True si se cumple alguna condición de derrota (contrato §3, congelado).
 
-    Condiciones a congelar en Semana 1 (contrato §3.2):
-      - salir de la grilla,
-      - pisar WALL,
-      - pisar DIRTY/SPILL sin neutralizar,
-      - quedarse sin instrucciones con tareas pendientes.
+    Se dispara FAILURE si ocurre CUALQUIERA:
+      1. moverse fuera de la grilla ([0, cols-1] x [0, rows-1]),
+      2. pisar una celda WALL,
+      3. pisar una celda DIRTY (peligro intransitable),
+      4. agotar las instrucciones (not instructions_left) con tareas pendientes
+         (level.tasks_remaining() > 0).
+
+    Nota: las celdas-tarea (DEAD_TREE/TRASH/SPILL) son transitables; pisarlas NO falla.
     """
-    raise NotImplementedError("Rol A — congelar condiciones en Semana 1")
+    raise NotImplementedError("Rol A — Semana 2 (condiciones ya congeladas, contrato §3)")

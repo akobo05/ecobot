@@ -38,7 +38,7 @@ los emojis quedan solo para la UI, nunca en los datos.
 - `grid_size` es `[columnas, filas]`. `grid` se indexa como `grid[row][col]`.
 - La posición del robot está **solo** en `robot_start`, nunca como token dentro de `grid`.
 - `star_thresholds` es `[slots para 1★, para 2★, para 3★]` (descendente).
-- Tokens de celda válidos: `GROUND` (transitable), `DIRTY` (contaminada, intransitable hasta limpiar), `WALL` (inaccesible), `GOAL` (meta), `DEAD_TREE` (tarea `PLANT`), `TRASH` (tarea `COLLECT`), `SPILL` (tarea `NEUTRALIZE`), `HIDDEN` (oculta hasta aplicar un filtro).
+- Tokens de celda válidos: `GROUND` (transitable), `DIRTY` (contaminada, **intransitable**: peligro, pisarla = derrota), `WALL` (inaccesible), `GOAL` (meta), `DEAD_TREE` (tarea `PLANT`), `TRASH` (tarea `COLLECT`), `SPILL` (tarea `NEUTRALIZE`), `HIDDEN` (oculta hasta aplicar un filtro). Las celdas-tarea son transitables; ver §3.
 - Direcciones válidas: `UP`, `DOWN`, `LEFT`, `RIGHT`.
 - Tipos de tarea: `PLANT`, `COLLECT`, `NEUTRALIZE`.
 
@@ -73,13 +73,14 @@ con su propio cuerpo. Las funciones se definen aparte:
 - `ACTION` sobre una celda sin tarea es un **no-op**: no hace fallar el nivel, pero
   gasta un slot.
 
-**Decisiones congeladas en Semana 1 (rellenar al acordarlas):**
-- [ ] **(a)** Cómo se cuentan los slots de un bloque `REPEAT` (¿el `REPEAT` + cada
-  instrucción del cuerpo, o solo el cuerpo?). → *Acuerdo: _____*
+**Decisiones congeladas (Semana 1, 2026-05-29):**
+- [x] **(a)** Un bloque `REPEAT` cuesta **1 slot por el token `REPEAT` + 1 slot por
+  cada instrucción de su `body`**, **independiente de `n`**. Ejemplo: `REPEAT(5){MOVE,
+  ACTION}` = 1 + 2 = **3 slots**. Esto premia comprimir secuencias largas en bucles
+  (más estrellas con menos slots).
 - [x] **(b)** **No** se permite `REPEAT` anidado dentro de otro `REPEAT` (un solo
   nivel de anidamiento). Una función no contiene bloques.
-- [ ] **(c)** Lista exacta de condiciones de derrota → ver §3 de esta spec y
-  `collision.py`.
+- [x] **(c)** Condiciones de derrota: ver §3 de esta spec y `collision.py`.
 
 ---
 
@@ -92,9 +93,24 @@ con su propio cuerpo. Las funciones se definen aparte:
 
 Cualquier pantalla nueva se agrega aquí y se avisa al equipo.
 
-**Condiciones de derrota (a confirmar, decisión (c) de §2):**
-salir de la grilla · pisar `WALL` · pisar `DIRTY`/`SPILL` sin neutralizar ·
-quedarse sin instrucciones con tareas pendientes.
+**Celdas-tarea vs celdas-peligro (modelo congelado):**
+- `DEAD_TREE` (PLANT), `TRASH` (COLLECT) y `SPILL` (NEUTRALIZE) son **transitables**:
+  el robot se para encima y `ACTION` completa la tarea. **Pisarlas NO es derrota.**
+- `WALL` y `DIRTY` son **intransitables (peligro)**: pisarlas = derrota inmediata.
+  `DIRTY` no tiene mecánica de limpieza (es un peligro a esquivar, como `WALL` pero
+  temático). Si más adelante se quiere "limpiar suelo", sería un cambio de contrato
+  (nuevo tipo de tarea), no la regla actual.
+
+**Condiciones de derrota (decisión (c), congelada 2026-05-29):** se dispara `FAILURE`
+si ocurre **cualquiera**:
+1. Moverse fuera de la grilla: coordenadas fuera de `[0, cols-1] × [0, rows-1]`.
+2. Pisar una celda `WALL`.
+3. Pisar una celda `DIRTY`.
+4. Agotar la cola de instrucciones (queue vacía) con tareas pendientes
+   (`tasks_remaining() > 0`).
+
+**`ACTION`:** sobre una celda-tarea completa su tarea; sobre cualquier otra celda es un
+no-op (no falla, pero gasta el slot).
 
 **Condición de victoria:** todas las tareas completas **y** el robot en una celda `GOAL`.
 
